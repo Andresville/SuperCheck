@@ -7,8 +7,8 @@ const products =
         price: "$ 350,00",
         stock: 10,
         description: "Pure de tomate Arcor por 520gr",
-        urlImage: "../src/assets/imagen/Arcor-pure-de-tomate.svg",
-        oferta: "Oferta"
+        urlImage: "../src/assets/imagen/Arcor-pure-de-tomate.svg"
+        
       },
       {
         id: "2",

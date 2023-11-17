@@ -1,5 +1,7 @@
+export * from './Cart/Cart';
 export * from './Item/Item';
 export * from './ItemCount/ItemCount';
+export * from './ItemDetailContainer/ItemDetailContainer';
 export * from './ItemList/ItemList';
 export * from './ItemListContainer/ItemListContainer';
 export * from './NavBar/CartWidget';

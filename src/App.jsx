@@ -1,8 +1,8 @@
-import { Cart, ItemListContainer, NavBar } from "../src/Components";
+import { Cart, ItemDetailContainer, ItemListContainer, NavBar } from "../src/Components";
 import { GlobalStyle } from "./GlobalStyle";
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { ItemDetailContainer } from "./ItemDetailContainer/ItemDetailContainer";
+
 
 
 
