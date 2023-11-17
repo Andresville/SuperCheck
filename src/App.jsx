@@ -1,15 +1,25 @@
-import GlobalStyle from "./GlobalStyle";
-import {NavBar} from "./Components/NavBar/NavBar";
-import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
+import { Cart, ItemListContainer, NavBar } from "../src/Components";
+import { GlobalStyle } from "./GlobalStyle";
+
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { ItemDetailContainer } from "./ItemDetailContainer/ItemDetailContainer";
+
+
+
 
 function App() {
 
   return (
-    <>
-    <GlobalStyle />
-    <NavBar />
-    <ItemListContainer mensaje="Bienvenidos a Supercheck, una manera nueva de comprar!!!!"/>
-    </>
+    <Router>
+      <GlobalStyle />
+      <NavBar />
+      <Routes>
+      <Route path="/" element={<ItemListContainer />} />
+        <Route path="/category/:category" element={<ItemListContainer />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </Router>
   );
 };
 

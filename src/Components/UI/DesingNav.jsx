@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import{firstColor, fourthColor} from "./Variables";
+import{firstColor, fourthColor} from "../index";
 
 export const StyledBrand = styled.header`
 background-color: ${firstColor};
@@ -72,7 +72,7 @@ export const NavBarLi = styled.li`
 
 `
 
-export const NavBarA = styled.a`
+export const NavBarP = styled.p`
   display: inline;
   background-color: ${fourthColor};
   color: ${firstColor};

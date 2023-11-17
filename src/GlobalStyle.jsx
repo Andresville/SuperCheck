@@ -1,15 +1,21 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
+import comprasOnline from "../src/assets/imagen/comprasOnline.jpg";
 
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     *{
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     text-decoration: none;
-    background-color: #FCFBFA;
+    
+    }
+    body{
+    background-image: url(${comprasOnline});
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
     }
 `
 
-export default GlobalStyle;

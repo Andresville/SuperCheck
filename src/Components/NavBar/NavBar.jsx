@@ -1,8 +1,6 @@
-import { StyledBrand, LogoBrand, TitleBrand, NavBarUl, NavBarLi, NavBarA } from "../UI/DesingNav";
-import Carrito from "../../assets/imagen/Carrito.svg"
-import { CartWidget } from "./CartWidget";
-
-
+import { StyledBrand, LogoBrand, TitleBrand, NavBarUl, NavBarLi, NavBarP, CartWidget } from "../index";
+import Logo from "../../assets/imagen/Logo.svg"
+import { NavLink } from "react-router-dom";
 
 
 export const NavBar = () => {
@@ -10,24 +8,29 @@ export const NavBar = () => {
     const btnNavBar ={
         categories: [
             {
-                name: "Almacén",
+                name: "Home",
                 id: "1",
-                href: "https://es.wikipedia.org/wiki/Almac%C3%A9n"
+                nameRoute: "",
             },
             {
                 name: "Limpieza y Perfumería",
                 id: "2",
-                href: "https://es.wikipedia.org/wiki/Perfume"
+                nameRoute: "Limpieza y Perfumeria",
             },
             {
                 name: "Frescos",
                 id: "3",
-                href: "https://es.wikipedia.org/wiki/Fresco"
+                nameRoute: "Frescos",
             },
             {
                 name: "Congelados",
                 id: "4",
-                href: "https://es.wikipedia.org/wiki/Congelados"
+                nameRoute: "Congelados",
+            },
+            {
+                name: "Almacén",
+                id: "5",
+                nameRoute: "Almacen",
             }
         ]
     };
@@ -37,14 +40,21 @@ export const NavBar = () => {
     return (
         <nav>
             <StyledBrand>
-                <LogoBrand src={Carrito} alt="Logo SuperCheck" />
+                <LogoBrand src={Logo} alt="Logo SuperCheck" />
                 <TitleBrand>SuperCheck</TitleBrand>
                 <CartWidget />
             </StyledBrand>
             <NavBarUl>
                 <NavBarLi>{
                     btnNavBar.categories.map((categories) => {
-                        return <NavBarA key={categories.id} href={categories.href} target="_black">{categories.name}</NavBarA>
+                        return ( categories.nameRoute === "" ? 
+                        <NavLink to={`${categories.nameRoute}`}  key={categories.id}>
+                        <NavBarP>{categories.name}</NavBarP>
+                        </NavLink> :
+                        <NavLink to={`/category/${categories.nameRoute}`}  key={categories.id}>
+                        <NavBarP>{categories.name}</NavBarP>
+                        </NavLink>
+                        )
                     })
                 }
                 </NavBarLi>
