@@ -1,33 +1,33 @@
 import { useState } from 'react'
-import { Amount, ContBnt, StyleBtnAddSubtract } from '../UI/DesingItem';
+import { Amount, ButtonItem, ContBnt, StyleBtnAddSubtract } from '../UI/DesingItem';
 
 
-
-export const ItemCount = ({stock, initial}) => {
+export const ItemCount = ({stock, initial, onAdd, updateQuantity}) => {
 
   const [count, setCount] = useState(initial);
 
-  const increment = () => {
-    if (count >= stock){
-      return stock;
-    }
-    setCount(count + 1);
-  };
+  const addItem = () => {
+    if (count < stock) {
+        setCount(count + 1)
+        updateQuantity(count + 1)
+      }
+    };
 
-  const decrement = () => {
-    if (count === initial) {
-      return setCount(initial);
-    }
-    setCount(count - 1);
+    const removeItem = () => {
+      if (count > initial) {
+          setCount(count - 1)
+          updateQuantity(count -1)
+      }
   };
 
     return (
         <>  
           <ContBnt>
-            <StyleBtnAddSubtract onClick={increment} >+</StyleBtnAddSubtract>
+          <StyleBtnAddSubtract onClick={removeItem} >-</StyleBtnAddSubtract>
             <Amount>{count}</Amount>
-            <StyleBtnAddSubtract onClick={decrement} >-</StyleBtnAddSubtract>
+            <StyleBtnAddSubtract onClick={addItem} >+</StyleBtnAddSubtract>
           </ContBnt>
+          <ButtonItem $shadow="#6b9969" onClick={onAdd}>Agregar al Carrito</ButtonItem>
         </>
     )
-}
+};

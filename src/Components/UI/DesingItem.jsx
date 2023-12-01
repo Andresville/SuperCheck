@@ -10,12 +10,21 @@ export const TitleItem = styled.h2`
   `
 
 export const ButtonItem = styled.button`
-    background-color: ${fourthColor};
+    background-color: ${(props) => props.color || fourthColor};
     width: 10vw;
     height: 10vh;
+    border: none;
     border-radius: 20px;
+    transition: 200ms;
     color: ${firstColor};
     margin-top: 2rem;
+    margin-left: ${(props) => props.$marginleft };
+    font-size: 1rem;
+    cursor: pointer;
+        &:hover{
+            box-shadow: 0 .5rem 0.5rem ${(props) => props.$shadow};
+    }
+
 `
 
 export const ContainerItem = styled.div`

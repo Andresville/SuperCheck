@@ -1,4 +1,5 @@
 import { Cart, ItemDetailContainer, ItemListContainer, NavBar } from "../src/Components";
+import { CartContextProvider } from "./Context/Context";
 import { GlobalStyle } from "./GlobalStyle";
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
@@ -10,6 +11,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 function App() {
 
   return (
+    <CartContextProvider>
     <Router>
       <GlobalStyle />
       <NavBar />
@@ -20,6 +22,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
+    </CartContextProvider>
   );
 };
 

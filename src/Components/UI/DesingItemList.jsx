@@ -15,6 +15,7 @@ export const Button = styled.button`
     height: 3vh;
     border-radius: 20px;
     color: ${firstColor};
+    cursor: pointer;
 `
 
 export const Container = styled.div`
@@ -25,8 +26,8 @@ export const Container = styled.div`
 `
 
 export const StyleItemList = styled.div`
-    width: 300px;
-    height: 150px;
+    width: 20vw;
+    height: 18vh;
     background-color: ${fifthColor};
     display:flex;
     flex-direction:column;

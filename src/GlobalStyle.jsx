@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     
     }
+
     body{
     background-image: url(${comprasOnline});
     background-repeat: no-repeat;

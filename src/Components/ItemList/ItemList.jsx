@@ -6,7 +6,7 @@ export const ItemList = ({ id, urlImage, name, category}) => {
   
   return (
     <StyleItemList>
-    <img src={urlImage} width={90} height={120}/>
+    <img src={urlImage} width={90} height={90}/>
           <Info>
           <h3>{name}</h3>
           <span>Categoría: {category}</span>

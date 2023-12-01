@@ -6,6 +6,7 @@ export * from './ItemList/ItemList';
 export * from './ItemListContainer/ItemListContainer';
 export * from './NavBar/CartWidget';
 export * from './NavBar/NavBar';
+export * from './UI/DesingCart';
 export * from './UI/DesingItem';
 export * from './UI/DesingItemList';
 export * from './UI/DesingNav';

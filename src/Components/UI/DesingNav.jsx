@@ -33,7 +33,7 @@ export const StyleCartWidget = styled.div`
   padding-top: 4vh;
 `
 
-export const StyleCart = styled.img`
+export const StyleCartIcon = styled.img`
   height: 30px;
   width: 30px;
   background-color: ${firstColor};
