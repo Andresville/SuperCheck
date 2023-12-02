@@ -7,6 +7,10 @@ export const ContainerCart = styled.div`
     margin: 2% 20%;
     width: 60%;
     background-color: ${firstColor};
+    @media(max-width: 425px){
+    width: 90%;
+    margin: 0 5%;
+}
 `
 
 export const StyleCart = styled.div`
@@ -15,6 +19,9 @@ export const StyleCart = styled.div`
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    @media(max-width: 425px){
+    margin-bottom: 1rem;
+}
 `
 
 export const TitleCart = styled.h2`
@@ -22,6 +29,10 @@ export const TitleCart = styled.h2`
     font-size: 3rem;
     color: ${ fourthColor};
     text-align: center;
+    @media(max-width: 425px){
+    font-size: 1.5rem;
+    margin: 2vh 0;
+}
   `
 
 export const InfoCart = styled.div`
@@ -41,6 +52,15 @@ span{
 h3{
     margin: auto;
 }
+@media(max-width: 425px){
+    flex-direction: column;
+span{
+    line-height: 1rem;
+    font-size: 1rem;
+    width: 60vw;
+    padding: 0.2rem;
+}
+}
 `
 
 export const CartImage = styled.img`
@@ -54,6 +74,10 @@ export const CartImage = styled.img`
     border-radius: 10%;
     box-shadow: 0 1rem .8rem #070707;
 }
+@media(max-width: 425px){
+    width: 3rem;
+    height: 3rem;
+}
 `
 
 export const StyleIcon = styled.img`
@@ -62,4 +86,8 @@ export const StyleIcon = styled.img`
   background-color: ${firstColor};
   color: red;
   cursor: pointer;
+  @media(max-width: 425px){
+    width: 1.5rem;
+    height: 1.5rem;
+}
 `

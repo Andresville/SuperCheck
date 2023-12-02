@@ -7,11 +7,10 @@ import eliminar from "../../assets/imagen/eliminar.svg"
 export const Cart = () => {
 
   const { cartListItems, setCartListItems, totalPrice, setTotalPrice, deleteProduct } = useContext(CartContext)
-
+  
   const deleteAll = () => {
     setCartListItems([]);
     setTotalPrice(0);
-
   };
 
 

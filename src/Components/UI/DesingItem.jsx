@@ -7,6 +7,10 @@ export const TitleItem = styled.h2`
     font-size: 2rem;
     color: ${fifthColor};
     text-align: left;
+    @media(max-width: 425px){
+      color: ${fourthColor};
+      font-size: 1rem;
+  }
   `
 
 export const ButtonItem = styled.button`
@@ -18,12 +22,17 @@ export const ButtonItem = styled.button`
     transition: 200ms;
     color: ${firstColor};
     margin-top: 2rem;
-    margin-left: ${(props) => props.$marginleft };
+    margin-left: ${(props) => props.$marginleft};
     font-size: 1rem;
     cursor: pointer;
         &:hover{
             box-shadow: 0 .5rem 0.5rem ${(props) => props.$shadow};
     }
+    @media(max-width: 425px){
+    width: 50vw;
+    height: 5vh;
+    margin: 1rem;
+}
 
 `
 
@@ -49,6 +58,28 @@ export const StyleItem = styled.div`
     text-align: center;
     color: ${fourthColor};
     font-size: 1.8rem;
+    @media(max-width: 425px){
+    height: auto;
+    margin-top: 10vw;
+    font-size: 1rem;
+}
+`
+
+export const ItemImage = styled.img`
+    width: ${(props) => props.$w};
+    height: ${(props) => props.$h};
+    transition: 300ms;
+    cursor: zoom-in;
+    margin: .5rem 0;
+    &:hover{
+    transform: scale(2);
+    border-radius: 10%;
+    box-shadow: 0 1rem .8rem #070707;
+}
+    @media(max-width: 425px){
+    width: 10rem;
+    height: 10rem;
+}
 `
 
 export const Info = styled.div`
@@ -58,6 +89,11 @@ export const Info = styled.div`
         font-weight: 300;
         line-height: 2.5rem;
     }
+    @media(max-width: 425px){
+        span{
+            line-height: 1.5rem;
+        }
+}
 `
 
 export const ContBnt = styled.div`
@@ -74,6 +110,10 @@ export const StyleBtnAddSubtract = styled.button`
     text-align: center;
     width: 3rem;
     height: 2.5rem;
+    @media(max-width: 425px){
+    width: 2rem;
+    height: 2rem;
+}
 `
 
 export const Amount = styled.div`
@@ -83,5 +123,10 @@ export const Amount = styled.div`
     text-align: center;
     width: 4rem;
     height: 2.5rem;
-    font-size: 2rem
+    font-size: 2rem;
+    @media(max-width: 425px){
+    width: 3rem;
+    height: 2rem;
+    font-size:1.5rem;
+}
 `

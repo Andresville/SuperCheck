@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import comprasOnline from "../src/assets/imagen/comprasOnline.jpg";
-
+import fondopantalla from "../src/assets/imagen/fondopantalla.svg";
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -17,6 +17,9 @@ export const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     background-size: cover;
     box-sizing: border-box;
+    @media(max-width: 425px){
+        background-image: url(${fondopantalla});
+    }
     }
 `
 

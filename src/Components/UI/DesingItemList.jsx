@@ -7,6 +7,11 @@ export const Title = styled.h2`
     font-size: 3rem;
     color: ${fifthColor};
     text-align: left;
+    @media(max-width: 425px){
+    color: ${fourthColor};
+    font-size: 1rem;
+    margin-left: 5vh;
+  }
   `
 
 export const Button = styled.button`
@@ -16,6 +21,12 @@ export const Button = styled.button`
     border-radius: 20px;
     color: ${firstColor};
     cursor: pointer;
+    @media(max-width: 425px){
+    font-size:.5rem;
+    width: 15vw;
+    margin-bottom: .5vw;
+}
+
 `
 
 export const Container = styled.div`
@@ -23,6 +34,7 @@ export const Container = styled.div`
     flex-direction:row;
     justify-content: space-around;
     flex-wrap: wrap;
+
 `
 
 export const StyleItemList = styled.div`
@@ -40,6 +52,28 @@ export const StyleItemList = styled.div`
     text-align: center;
     color: ${fourthColor};
     font-size: .8rem;
+    @media(max-width: 425px){
+    width: 35vw;
+    height: 20vh;
+  }
+`
+
+export const ItemListImage = styled.img`
+    width: ${(props) => props.$w};
+    height: ${(props) => props.$h};
+    transition: 300ms;
+    cursor: zoom-in;
+    margin: .5rem 0;
+&:hover{
+    transform: scale(2);
+    border-radius: 10%;
+    box-shadow: 0 1rem .8rem #070707;
+}
+@media(max-width: 425px){
+    width: 3rem;
+    height: 3rem;
+}
+
 `
 
 export const Info = styled.div`

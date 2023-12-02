@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
-import { Button, Info, StyleItemList } from "../UI/DesingItemList"
+import { Button, Info, ItemListImage, StyleItemList } from "../UI/DesingItemList"
 
 
 export const ItemList = ({ id, urlImage, name, category}) => {
   
   return (
     <StyleItemList>
-    <img src={urlImage} width={90} height={90}/>
+    <ItemListImage $w="6rem" $h="6rem"  src={urlImage} />
           <Info>
           <h3>{name}</h3>
           <span>Categoría: {category}</span>
