@@ -1,74 +1,84 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 
 export const CartContext = createContext(null);
 
 export const CartContextProvider = ( { children } ) => {
 
-    const [cartListItems, setCartListItems] = useState(JSON.parse(localStorage.getItem('products')) || []);
-    const [totalPrice, setTotalPrice] = useState(JSON.parse(localStorage.getItem('total-price')) || 0);
+  const [cartListItems, setCartListItems] = useState(JSON.parse(localStorage.getItem('items')) || []);
+  const [totalCartItems, setTotalCartItems] = useState(0);
+  const [totalQuantity, setTotalQuantity] = useState(0);
 
-    const addProductToCart = (product) => {
+  const addProductToCart = (item) => {
+    const { urlImage, price, description, id, quantity } = item;
+    // Buscamos la posición indice del producto dentro del carrito
+    const index = cartListItems.findIndex((product) => product.id === id);
 
-        // Busco en el cartListItems el producto a agregar, si no lo encuentra (carga por primera vez), lo agrega
-        let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
+    if (index !== -1) {
+      // Si el resulta de index no es -1
+      // Hacemos una copia del state
+      const cartListItemsCopy = [...cartListItems];
+      // Modificamos la cantidad del producto aumentando el valor con la cantidad recibida
+      cartListItemsCopy[index].quantity += quantity;
+      // Modificamos el subtotal con la nueva cantidad
+      cartListItemsCopy[index].subTotal = cartListItemsCopy[index].quantity * cartListItemsCopy[index].price;
+      // Reemplazamos el state original con la copia
+      setCartListItems(cartListItemsCopy);
+      setQuantityCart(quantityCart + quantity);
+    } else {
+      const newItem = {
+        id,
+        description,
+        urlImage,
+        price,
+        quantity,
+        subTotal: quantity * price,
+      };
 
-        if (!isInCart) {
-            setCartListItems(cartListItems => [...cartListItems, product])
-            setTotalPrice(totalPrice + product.price * product.quantity)
-            localStorage.setItem('products', JSON.stringify([...cartListItems, product]))
-            localStorage.setItem('total-price', totalPrice + product.price * product.quantity)
-
-        } else {
-
-            // La siguiente lógica sirve para actualizar la cantidad del carrito en caso que el usuario 
-            // vuelva a elegir el mismo item, incluye lógica para que nunca supere el stock disponible
-
-            const refreshQuantity = cartListItems.find(cartItem => cartItem.id === product.id)
-
-            if (refreshQuantity.quantity + product.quantity <= product.stock) {
-
-                refreshQuantity.quantity += product.quantity
-
-                // Filtro todos los productos distintos al elegido, los vuelvo a setear en el setCartListItems
-                // para así haber eliminado el que voy a actualizar, luego le agrego a esos productos 
-                // el nuevo con la cantidad modificada
-                const filteredProduct = cartListItems.filter(cartItem => cartItem.id !== product.id)
-                setCartListItems(filteredProduct)
-                setCartListItems(filteredProduct => [...filteredProduct, refreshQuantity])
-                localStorage.setItem('products', JSON.stringify([...filteredProduct, refreshQuantity]))
-
-                setTotalPrice(totalPrice + product.price * product.quantity)
-                localStorage.setItem('total-price', totalPrice + product.price * product.quantity)
-
-                }
-        }
-    };
-
-    // Función para el borrado de productos
-    const deleteProduct = (prod) => {
-
-        // Filtro los productos distintos al que quiero borrar y los seteo en el context, por lo que eliminé el que selecciona el usuario
-        const filteredProduct = cartListItems.filter(cartItem => cartItem !== prod)
-        setCartListItems(filteredProduct)
-        localStorage.setItem('products', JSON.stringify(filteredProduct))
-
-        // Actualizo el precio total a mostrar
-        setTotalPrice(totalPrice - prod.price * prod.quantity)
-        localStorage.setItem('total-price', totalPrice - prod.price * prod.quantity)
-    };
-
-    const data = {
-        cartListItems,
-        setCartListItems,
-        addProductToCart,
-        totalPrice,
-        setTotalPrice,
-        deleteProduct
+      setCartListItems([...cartListItems, newItem]);
     }
 
+    
+  };
+
+  const deleteProduct = (id) => { 
+        const arrayFilter = cartListItems.filter( item => item.id !== id );
+        setCartListItems(arrayFilter);
+        
+   };
+
+   const deleteAll = () => { 
+      setCartListItems([]);
+      
+    };
+
+    const handleTotal = () => {
+        const total = cartListItems.reduce( (acum, item) => acum + item.subTotal, 0 );
+        setTotalCartItems(total);
+    }
+
+    const handleTotalQuantity = () => { 
+        const total = cartListItems.reduce( (acum, item) => acum + item.quantity, 0);
+        setTotalQuantity(total);
+     }
+
+    useEffect( () => { 
+            handleTotal();
+            handleTotalQuantity();
+            localStorage.setItem("items", JSON.stringify(cartListItems));
+     }, [cartListItems] )
+
+  const objetValue = {
+    cartListItems,
+    totalCartItems,
+    totalQuantity,
+    addProductToCart,
+    deleteProduct,
+    deleteAll
+  };
+
     return (
-        <CartContext.Provider value={data}>{children}</CartContext.Provider>
+        <CartContext.Provider value={objetValue}>{children}</CartContext.Provider>
     )
 };
 

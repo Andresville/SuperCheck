@@ -1,23 +1,37 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../../InfoProducts";
 import { Item, TitleItem } from "../index";
+import { db } from "../../Config/firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 
 
 export const ItemDetailContainer = () => {
-  const { id } = useParams();
+  
   const [item, setItem] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   
 
+  const { id } = useParams();
+  
+  const getProductById = (id) => { 
+    const productRef = doc( db, "products", id );
+     getDoc(productRef)
+       .then( resp => {
+         // Verificar si el producto existe
+         if( resp.exists()) {
+           const prod = {
+             id: resp.id,
+             ...resp.data()
+           }
+           setItem(prod);
+           setIsLoading(false);
+         }
+       })    
+}
+
   useEffect(() => {
     setIsLoading(true);
-    getProductById(id)
-      .then(resp => {
-        setItem(resp)
-        setIsLoading(false);
-      })
-      .catch(error => console.log(error));
+    getProductById(id);
 
   }, [])
 

@@ -26,7 +26,7 @@ export const Item = ({ urlImage, name, category, price, description, stock, id }
           <span>Categoría: {category}</span>
           <span>{description}</span>
           <span>$ {price}</span>
-          <span>Stock: {stock }</span>
+          <span>Stock: {stock}</span>
         </Info>
         <ItemCount stock={stock} initial={1} onAdd={onAdd} updateQuantity={setQuantity} />
         <ButtonItem $shadow="#92c49f" color="#18e74fe2">
@@ -35,5 +35,6 @@ export const Item = ({ urlImage, name, category, price, description, stock, id }
       </StyleItem>
     </>
   )
+
 
 };

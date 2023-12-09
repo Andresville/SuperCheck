@@ -7,14 +7,14 @@ import { useContext } from "react"
 
 export const CartWidget = () => {
 
-  const { cartListItems, deleteProduct } = useContext(CartContext);
+  const { totalQuantity } = useContext(CartContext);
 
   return (
     <StyleCartWidget>
       <Link to="/cart">
         <StyleCartIcon src={CarritoIcono} alt="Carrito de Compras" />
-        <Span>({cartListItems.length})</Span>
+        <Span>({totalQuantity})</Span>
       </Link>
     </StyleCartWidget>
   )
-}
+};
