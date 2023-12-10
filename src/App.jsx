@@ -1,4 +1,4 @@
-import { Cart, ItemDetailContainer, ItemListContainer, NavBar } from "../src/Components";
+import { Cart, ItemDetailContainer, ItemListContainer, NavBar, Formulary } from "../src/Components";
 import { CartContextProvider } from "./Context/Context";
 import { GlobalStyle } from "./GlobalStyle";
 
@@ -20,6 +20,7 @@ function App() {
         <Route path="/category/:category" element={<ItemListContainer />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/form" element={<Formulary/>} />
       </Routes>
     </Router>
     </CartContextProvider>

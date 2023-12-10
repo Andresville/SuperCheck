@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { ButtonItem, Info } from "../UI/DesingItem";
 import { CartContext } from "../../Context/Context";
 import { CartImage, ContainerCart, InfoCart, StyleCart, StyleIcon, TitleCart } from "../UI/DesingCart";
@@ -6,11 +7,14 @@ import eliminar from "../../assets/imagen/eliminar.svg"
 
 export const Cart = () => {
 
-  const { cartListItems, totalCartItems, deleteProduct, deleteAll } = useContext(CartContext)
+  const { cartListItems, totalCartItems, deleteProduct, deleteAll } = useContext(CartContext);
   
   return (
     <>
-      <ButtonItem color="red" $marginleft="80%"  $shadow="#ecb3b3" onClick={deleteAll}>Vaciar Carrito</ButtonItem>
+      <ButtonItem color="red" $marginleft="10%"  $shadow="#ecb3b3" onClick={deleteAll}>Vaciar Carrito</ButtonItem>
+      <ButtonItem color="#18e74fe2" $marginleft="60%"  $shadow="#92c49f">
+      <Link to="/form">Finalizar compra</Link>
+      </ButtonItem>
       <ContainerCart>
       <TitleCart>Mi Carrito: ${totalCartItems}</TitleCart>
       {cartListItems.map((item) => {
@@ -27,10 +31,10 @@ export const Cart = () => {
             <StyleIcon type="button" src={eliminar} alt="Eliminar" onClick={() => deleteProduct(id)}/>
           </StyleCart>
         
-        )
-      })}
+        );
+      })};
       </ContainerCart>
 
     </>
-  )
+  );
 };
