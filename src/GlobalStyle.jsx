@@ -21,5 +21,10 @@ export const GlobalStyle = createGlobalStyle`
         background-image: url(${fondopantalla});
     }
     }
+
+    main {
+    display: flex;
+    justify-content: center;
+    }
 `
 

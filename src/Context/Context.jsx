@@ -24,7 +24,7 @@ export const CartContextProvider = ( { children } ) => {
       cartListItemsCopy[index].subTotal = cartListItemsCopy[index].quantity * cartListItemsCopy[index].price;
       // Reemplazamos el state original con la copia
       setCartListItems(cartListItemsCopy);
-      setQuantityCart(quantityCart + quantity);
+      setTotalQuantity(totalQuantity + quantity);
     } else {
       const newItem = {
         id,

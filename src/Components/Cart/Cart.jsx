@@ -31,8 +31,8 @@ export const Cart = () => {
             <StyleIcon type="button" src={eliminar} alt="Eliminar" onClick={() => deleteProduct(id)}/>
           </StyleCart>
         
-        );
-      })};
+        )
+      })}
       </ContainerCart>
 
     </>

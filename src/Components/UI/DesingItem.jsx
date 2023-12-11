@@ -44,8 +44,8 @@ export const ContainerItem = styled.div`
 `
 
 export const StyleItem = styled.div`
-    width: 80vw;
-    height: 50vh;
+    width: ${(props) => props.$wStyleItem};
+    height: ${(props) => props.$hStyleItem};
     background-color: ${fifthColor};
     display:flex;
     flex-direction:column;
@@ -59,7 +59,10 @@ export const StyleItem = styled.div`
     color: ${fourthColor};
     font-size: 1.8rem;
     @media(max-width: 425px){
+    width: auto;
+    min-width: 70vw;
     height: auto;
+    min-height: 40vh;
     margin-top: 10vw;
     font-size: 1rem;
 }

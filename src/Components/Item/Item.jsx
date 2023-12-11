@@ -19,7 +19,7 @@ export const Item = ({ urlImage, name, category, price, description, stock, id }
 
   return (
     <>
-      <StyleItem>
+      <StyleItem $wStyleItem="80vw" $hStyleItem="50vh">
         <ItemImage $w="17rem" $h="17rem" src={urlImage} />
         <Info>
           <h3>{name}</h3>

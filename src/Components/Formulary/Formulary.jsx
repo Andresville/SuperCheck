@@ -1,11 +1,11 @@
 import { TextField } from "@mui/material";
-import Button from '@mui/material/Button';
-import { ContainerCart } from "../UI/DesingCart";
 import { useContext, useState } from "react";
 import { CartContext } from "../../Context/Context";
 import { db } from "../../Config/firebaseConfig";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import Swal from "sweetalert2";
+import { Title } from "../UI/DesingItemList";
+import { ButtonItem, StyleItem } from "../UI/DesingItem";
 
 
 
@@ -59,7 +59,7 @@ export const Formulary = () => {
 
         Swal.fire({
             title: 'Compra confirmada',
-            text: `${formValue.name} tu compra se realizo de forma exitosa el dia ${newOrder.date}. El total a pagar es de: $ ${newOrder.total}`,
+            text: `${formValue.name} tu compra se realizo de forma exitosa. El total de tu compra es de: $ ${newOrder.total}`,
             footer: `ID de la operación: ${orderDoc.id}`,
             icon: 'success',
             confirmButtonText: 'Aceptar'
@@ -67,30 +67,14 @@ export const Formulary = () => {
         deleteAll()
     };
 
-    console.log(cartListItems)
-    console.log(formValue)
-    console.log(order)
-    console.log(totalCartItems)
     
-
-    /* 
-Orden de compra 
-
-collection: "orders"
-documents: las ordenes de compra 
-document = {
-  buyer: { name, phone, email },
-  items: {id, name, price, quantity, subTotal},
-  date: serverTimestamp();
-  total: es el total de la compra
-}
-
-*/
     return (
-        <>
-            <form className='check-form' onSubmit={handleSubmit}>
-                <ContainerCart>
-                    <TextField
+        <>  
+            <Title>Datos de Envío</Title>
+            <main>
+            <form onSubmit={handleSubmit}>
+                <StyleItem $wStyleItem="30vw" $hStyleItem="60vh">
+                    <TextField 
                         id="complete-name"
                         name="name"
                         label="Tu nombre completo"
@@ -100,8 +84,6 @@ document = {
                         onChange={handleChange}
                         required
                     />
-                </ContainerCart>
-                <ContainerCart>
                 <TextField
                     id="phone"
                     name="phone"
@@ -112,8 +94,6 @@ document = {
                     onChange={handleChange}
                     required
                 />
-                </ContainerCart>
-                <ContainerCart>
                 <TextField
                     id="email"
                     name="mail"
@@ -124,9 +104,10 @@ document = {
                     onChange={handleChange}
                     required
                 />
-                </ContainerCart>
-                <Button type="submit" variant="contained" size="medium">Enviar</Button>
+                <ButtonItem color="#055b70" $marginleft="45%"  $shadow="#0e8da3" type="submit">Enviar</ButtonItem>
+                </StyleItem>
             </form >
+            </main>
         
                 </>
   )
