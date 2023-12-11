@@ -17,7 +17,7 @@ export const Title = styled.h2`
 export const Button = styled.button`
     background-color: ${fourthColor};
     width: 8vw;
-    height: 3vh;
+    height: 4vh;
     border-radius: 20px;
     color: ${firstColor};
     cursor: pointer;

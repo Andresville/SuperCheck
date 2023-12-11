@@ -51,8 +51,8 @@ export const StyleCartIcon = styled.img`
   width: 30px;
   background-color: ${firstColor};
   @media(max-width: 425px){
-    height: 1.2rem;
-    width: 1.2rem;
+    height: .8em;
+    width: .8rem;
   }
 `
 
@@ -76,7 +76,7 @@ export const NavBarUl = styled.ul`
   overflow: hidden;
   background-color: ${fourthColor};
   @media(max-width: 425px){
-    height: 3vh;
+    height: 4vh;
   }
 `
 
@@ -87,12 +87,12 @@ export const NavBarLi = styled.li`
   height: 5vh;
   flex-direction: row;
   list-style-type: none; 
-  margin: 0;
-  padding: 0;
+  padding-top: .3rem;
   overflow: hidden;
   background-color: ${fourthColor};
   @media(max-width: 425px){
-    height: 2vh;
+    height: 4vh;
+    padding-top: .1rem;
   }
 `
 

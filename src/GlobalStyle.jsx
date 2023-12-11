@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import comprasOnline from "../src/assets/imagen/comprasOnline.jpg";
 import fondopantalla from "../src/assets/imagen/fondopantalla.svg";
 
