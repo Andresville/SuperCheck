@@ -38,7 +38,7 @@ export const Container = styled.div`
 `
 
 export const StyleItemList = styled.div`
-    width: 20vw;
+    width: 25vw;
     height: 18vh;
     background-color: ${fifthColor};
     display:flex;
