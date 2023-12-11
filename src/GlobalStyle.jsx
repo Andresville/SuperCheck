@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import comprasOnline from "../src/assets/imagen/comprasOnline.jpg";
 import fondopantalla from "../src/assets/imagen/fondopantalla.svg";
 
@@ -27,4 +27,5 @@ export const GlobalStyle = createGlobalStyle`
     justify-content: center;
     }
 `
+
 

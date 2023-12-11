@@ -1,4 +1,4 @@
-import { Container, Title, TitleItem } from "../index";
+import { Container, NotFound, Title, TitleItem } from "../index";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../Config/firebaseConfig";
 import { useEffect, useState } from "react";
@@ -11,6 +11,7 @@ export const ItemListContainer = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
  
  
   const getProductsDB = (category) => {
@@ -19,7 +20,7 @@ export const ItemListContainer = () => {
       : query(collection(db, "products"));
     getDocs(myProducts).then((resp) => {
       if (resp.size === 0) {
-        console.log("No hay productos en la base de datos");
+        setNotFound(true);
       }
       const productList = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setProducts(productList);
@@ -27,10 +28,10 @@ export const ItemListContainer = () => {
     });
   };
 
-  
 
   useEffect(() => {
     setIsLoading(true);
+    setNotFound(false);
     getProductsDB(category)
   
     //seedProducts();
@@ -38,6 +39,8 @@ export const ItemListContainer = () => {
   
    
   return (
+    <>
+    {notFound ? <NotFound/> :
     <>
     <Title>Nuestros Productos</Title>
     <Container>
@@ -47,6 +50,8 @@ export const ItemListContainer = () => {
       ))
       }
     </Container>
+    </>
+    }
     </>
   );
 };

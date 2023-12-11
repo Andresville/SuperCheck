@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Item, TitleItem } from "../index";
 import { db } from "../../Config/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 
 export const ItemDetailContainer = () => {
@@ -25,7 +26,13 @@ export const ItemDetailContainer = () => {
            }
            setItem(prod);
            setIsLoading(false);
-         }
+         }else {
+          Swal.fire({
+              title: 'Error',
+              text: 'Tienes que seleccionar un producto existente!!!!',
+              icon: 'error',
+              confirmButtonText: 'Aceptar'
+          })}
        })    
 }
 
