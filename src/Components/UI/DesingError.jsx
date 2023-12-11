@@ -8,5 +8,9 @@ export const E404 = styled.img`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    @media(max-width: 425px){
+      max-width: 350px;
+      max-height: 550px;
+      margin: 10% auto;
+  }
 `
