@@ -15,7 +15,8 @@ export const Formulary = () => {
     const [formValue, setFormValue] = useState({
         name: '',
         phone: '',
-        mail: ''
+        mail: '',
+        mail1: ''
     });
     
     const [order, setOrder] = useState({
@@ -37,13 +38,17 @@ export const Formulary = () => {
         e.preventDefault();
     
         // Verificar si los valores son válidos antes de actualizar el estado y guardar los datos
-        if (totalCartItems !== undefined && formValue.name && formValue.phone && formValue.mail) {
+        if (totalCartItems !== undefined && formValue.name && formValue.phone && formValue.mail && formValue.mail===formValue.mail1) {
             const updatedOrder = { ...order, buyer: formValue, total: totalCartItems, date:serverTimestamp()  };
             setOrder(updatedOrder);
             saveData(updatedOrder);
         } else {
-            console.error('Algunos valores son undefined o inválidos.');
-            // Puedes manejar el caso en el que los valores no son válidos, por ejemplo, mostrando un mensaje de error al usuario.
+            Swal.fire({
+                title: 'Error',
+                text: 'Los datos ingresados no son correctos',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
         }
     };
     
@@ -51,6 +56,7 @@ export const Formulary = () => {
 
     const handleChange = (e) => {
         setFormValue({...formValue, [e.target.name]: e.target.value})
+        
     };
 
     const saveData = async (newOrder) =>{
@@ -77,7 +83,7 @@ export const Formulary = () => {
                     <TextField 
                         id="complete-name"
                         name="name"
-                        label="Tu nombre completo"
+                        label="Nombre Completo"
                         variant="standard"
                         type="text"
                         value={formValue.name}
@@ -101,6 +107,16 @@ export const Formulary = () => {
                     variant="standard"
                     type="email"
                     value={formValue.mail}
+                    onChange={handleChange}
+                    required
+                />
+                <TextField
+                    id="email1"
+                    name="mail1"
+                    label="Confirme su Email"
+                    variant="standard"
+                    type="email"
+                    value={formValue.mail1}
                     onChange={handleChange}
                     required
                 />
