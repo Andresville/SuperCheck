@@ -13,7 +13,7 @@ Ecommerce realizado en React conectado a una DB en Firebase. La tienda está ded
 
 ### Pantalla principal con items y filtrado por categoría:
 
-![uno](https://github.com/Andresville/SuperCheck/assets/104869327/60eb60d0-d407-4abf-800b-1f4d127ec9f9.gif)
+![uno](https://github.com/Andresville/SuperCheck/assets/104869327/07b7b847-d9c8-445e-9128-f85c0634279d.gif)
 <br><br><br>
 
 ### Acceso al detalle del producto y agregado de productos al carrito:
@@ -28,7 +28,7 @@ Ecommerce realizado en React conectado a una DB en Firebase. La tienda está ded
 
 ### Finalización de compra, se carga el formulario ( se confirma que el email se haya cargado las dos veces de forma correcta ). Luego se le informa al usuario el ID y controlamos en Firebase que se haya generado la orden:
 
-![cuatro](https://github.com/Andresville/SuperCheck/assets/104869327/02a6245f-2299-422d-badd-a804d88ec4b2.gif)
+![cuatro](https://github.com/Andresville/SuperCheck/assets/104869327/98a9bdc5-f7ee-4e54-b1d7-df60cf99c683.gif)
 <br><br><br>
 
 
