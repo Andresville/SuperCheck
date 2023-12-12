@@ -4,7 +4,7 @@
 Ecommerce realizado en React conectado a una DB en Firebase. La tienda está dedicada a la venta de alimentos, donde se puede ver en la home el listado de los mismos, filtrar por categorías, entrar a su detalle y agregar al carrito. En el carrito se puede eliminar por producto, vaciar el carrito completo y finalizar la compra. Al finalizar se debe completar un formulario con los datos del usuario, se genera una orden con un ID único. Se controla en Firebase que se haya generado dicha orden.
 
 ## Instalación:
-- git clone https://github.com/Andresville/SuperCheck.git
+- git clone 
 - npm install
 - npm run dev
 
