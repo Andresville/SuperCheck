@@ -27,7 +27,7 @@ Ecommerce realizado en React conectado a una DB en Firebase. La tienda está ded
 
 ### Finalización de compra, se carga el formulario ( se confirma que el email se haya cargado las dos veces de forma correcta ). Luego se le informa al usuario el ID y controlamos en Firebase que se haya generado la orden:
 
-![cuatro](https://github.com/Andresville/SuperCheck/assets/104869327/fc48a4d9-50e9-4f49-bcd7-70bb1866a501.gif)
+![cuatro](https://github.com/Andresville/SuperCheck/assets/104869327/8ba816d5-d038-41c9-a8ea-59d541dccf88.gif)
 <br><br><br>
 
 
